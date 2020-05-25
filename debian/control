@@ -7,7 +7,7 @@ Standards-Version: 4.1.4
 
 Package: git-subrepo
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, git (>= 2.8), bash (>= 4)
 Description: GIT Submodule alternative
  This is a GIT Submodule alternative written by Ingy döt Net.
  .
