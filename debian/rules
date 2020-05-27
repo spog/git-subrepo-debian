@@ -4,6 +4,8 @@
 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 #export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+export DESTDIR = $(shell pwd)/debian/git-subrepo
+export PREFIX=/usr
 
 %:
 	dh $@  
@@ -15,6 +17,9 @@
 #	dh_install --list-missing -X.pyc -X.pyo
 
 override_dh_install:
-	export DESTDIR=$(shell pwd)/debian/git-subrepo; export PREFIX=/usr; make -C src install
+	make -C src install
+	install -d -m 0755 $(DESTDIR)/$(PREFIX)/share/bash-completion/completions
+	install -C -m 0644 src/share/completion.bash $(DESTDIR)/$(PREFIX)/share/bash-completion/completions/git-subrepo
+	sed -i '1i#!/bin/bash' $(DESTDIR)/$(PREFIX)/lib/git-core/git-subrepo.d/bash+.bash
 
 override_dh_usrlocal:
