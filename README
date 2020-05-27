@@ -4,15 +4,41 @@ A 'git-subrepo' Debian packaging project:
 It uses 'git-subrepo' to bring content into the 'src' subdirectory of
 this packaging project.
 
-Howto:
-------
+Howto - test builds (UNRELEASED):
+---------------------------------
 1. Set required content version.
 i.e.: $ git subrepo clone https://github.com/ingydotnet/git-subrepo.git src -b 0.4.1
 
 2. Edit the debian/{changelog, ...) files and run 'debuild' from packaging
 project top directory.
 
-3. Inspect results in the parent directory.
+3. Inspect /test results from the parent directory.
 
 4. Commit / push chages, when happy.
+
+Ubuntu - bionic build (RELEASED):
+---------------------------------
+$ cd git-subrepo-debian
+$ dch --release --distribution=bionic
+$ git diff
+$ debuild -S
+$ cd ..
+$ sudo pbuilder create --buildplace ~/pbuilder/
+$ sudo pbuilder build --buildplace /home/samo/pbuilder git-subrepo_0.4.1.dsc
+$ ls /var/cache/pbuilder/result/
+$ dput ppa:spog/ppa git-subrepo_0.4.1_amd64.changes 
+
+Remove any UNRELEASED installations:
+$ sudo dpkg -r git-subrepo
+
+Add PPA containing 'git-subrepo' package:
+$ sudo add-apt-repository ppa:spog/ppa
+$ sudo apt-get update
+
+Install 'git-subrepo' DEB using APT:
+$ sudo apt update
+$ apt search git-subrepo
+$ sudo apt install git-subrepo
+$ man git-subrepo
+$ git subrepo ...
 
