@@ -1,8 +1,8 @@
 Source: git-subrepo
-Section: devel
+Section: vcs
 Priority: optional
 Maintainer: Samo Pogačnik <samo_pogacnik@t-2.net>
-Build-Depends: debhelper (>= 11)
+Build-Depends: debhelper (>= 11), git (>= 2.8)
 Standards-Version: 4.1.4
 
 Package: git-subrepo
