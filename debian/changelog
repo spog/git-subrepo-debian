@@ -1,4 +1,4 @@
-git-subrepo (0.4.1) UNRELEASED; urgency=low
+git-subrepo (0.4.1~0) UNRELEASED; urgency=low
 
   [ admorgan ]
   * Fix Bash version error messages and add to .rc
