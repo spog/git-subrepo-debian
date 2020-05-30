@@ -23,10 +23,9 @@ $ dch --release --distribution=bionic
 $ git diff
 $ debuild -S
 $ cd ..
-$ sudo pbuilder create --buildplace ~/pbuilder/
-$ sudo pbuilder build --buildplace /home/samo/pbuilder git-subrepo_0.4.1.dsc
+$ sudo pbuilder build git-subrepo_0.4.1~0.dsc
 $ ls /var/cache/pbuilder/result/
-$ dput ppa:spog/ppa git-subrepo_0.4.1_amd64.changes 
+$ dput ppa:spog/ppa git-subrepo_0.4.1~0_source.changes
 
 Remove any UNRELEASED installations:
 $ sudo dpkg -r git-subrepo
