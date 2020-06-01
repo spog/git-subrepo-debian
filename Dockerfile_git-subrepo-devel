@@ -1,0 +1,26 @@
+# docker build -f Dockerfile_git-subrepo-devel -t ubuntu:xenial-git-subrepo-devel .
+FROM ubuntu:xenial
+
+# Identify the maintainer of an image
+LABEL maintainer="samo_pogacnik@t-2.net"
+ 
+# Disable Prompt During Packages Installation
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Update the image to the latest packages
+RUN apt-get update && apt-get upgrade -y
+ 
+# Install packages
+RUN apt-get install -y \
+apt-utils \
+software-properties-common \
+devscripts \
+debhelper \
+locales \
+locales-all \
+language-pack-sl \
+sudo \
+bash-completion \
+git \
+vim
+

@@ -23,11 +23,22 @@ Prepared debian files:
 - debian/compat
 - debian/control
 
-Run ubuntu-dev-git:xenial container:
-$ docker run -u $(id -u ${USER}):$(id -g ${USER}) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v ${HOME}:${HOME} -w ${HOME} -it ubuntu-dev-git:xenial
-samo@9789e1d58e8d:~$ source .bashrc 
-samo@9789e1d58e8d:~$ export LANG=sl_SI.UTF-8
+Run ubuntu:xenial-git-subrepo-devel container:
+
+$ docker run --rm \
+-u $(id -u ${USER}):$(id -g ${USER}) \
+-v /etc/passwd:/etc/passwd:ro \
+-v /etc/group:/etc/group:ro \
+-v /etc/shadow:/etc/shadow:ro \
+-v /etc/sudoers:/etc/sudoers:ro \
+-v ${HOME}:${HOME} \
+-w ${HOME} \
+-it ubuntu:xenial-git-subrepo-devel
+samo@9789e1d58e8d:~$ 
+
 samo@9789e1d58e8d:~$ cd GIT-SUBREPO/git-subrepo-debian/
+samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ 
+
 samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ debuild -S -uc -us
  dpkg-buildpackage -rfakeroot -d -us -uc -S
 dpkg-buildpackage: source package git-subrepo
@@ -52,6 +63,7 @@ Now running lintian...
 W: git-subrepo source: package-needs-versioned-debhelper-build-depends 10
 W: git-subrepo source: newer-standards-version 4.1.4 (current is 3.9.7)
 Finished running lintian.
+samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ 
 samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ exit
 $
 
