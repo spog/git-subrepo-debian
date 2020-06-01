@@ -56,6 +56,7 @@ samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ exit
 $
 
 Upload to launchpad:
+GIT-SUBREPO$ debsign git-subrepo_0.4.1~1_source.changes
 GIT-SUBREPO$ dput -f ppa:spog/ppa-xenial git-subrepo_0.4.1~1_source.changes
 
 Add PPA containing 'git-subrepo' package:
