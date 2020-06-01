@@ -16,7 +16,7 @@ project top directory.
 
 4. Commit / push chages, when happy.
 
-Ubuntu - bionic build (RELEASED):
+Ubuntu - xenial build (RELEASED):
 ---------------------------------
 Prepared debian files:
 - debian/changelog
