@@ -1,4 +1,4 @@
-git-subrepo (0.4.1~1) bionic; urgency=low
+git-subrepo (0.4.1~1) xenial; urgency=low
 
   [ spog ]
   * Fixed reading installed subrepo command info.
@@ -25,4 +25,4 @@ git-subrepo (0.4.1~1) bionic; urgency=low
   * Fixed typo
   * Travis CI not checking out a branch.
 
- -- Samo Pogačnik <samo_pogacnik@t-2.net>  Sat, 30 May 2020 17:03:56 +0200
+ -- Samo Pogačnik <samo_pogacnik@t-2.net>  Sun, 31 May 2020 09:08:15 +0000

@@ -18,21 +18,48 @@ project top directory.
 
 Ubuntu - bionic build (RELEASED):
 ---------------------------------
-$ cd git-subrepo-debian
-$ dch --release --distribution=bionic
-$ git diff
-$ debuild -S
-$ cd ..
-$ sudo pbuilder create --buildplace ~/pbuilder/
-$ sudo pbuilder build --buildplace /home/samo/pbuilder git-subrepo_0.4.1.dsc
-$ ls /var/cache/pbuilder/result/
-$ dput ppa:spog/ppa git-subrepo_0.4.1_amd64.changes 
+Prepared debian files:
+- debian/changelog
+- debian/compat
+- debian/control
 
-Remove any UNRELEASED installations:
-$ sudo dpkg -r git-subrepo
+Run ubuntu-dev-git:xenial container:
+$ docker run -u $(id -u ${USER}):$(id -g ${USER}) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -v ${HOME}:${HOME} -w ${HOME} -it ubuntu-dev-git:xenial
+samo@9789e1d58e8d:~$ source .bashrc 
+samo@9789e1d58e8d:~$ export LANG=sl_SI.UTF-8
+samo@9789e1d58e8d:~$ cd GIT-SUBREPO/git-subrepo-debian/
+samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ debuild -S -uc -us
+ dpkg-buildpackage -rfakeroot -d -us -uc -S
+dpkg-buildpackage: source package git-subrepo
+dpkg-buildpackage: source version 0.4.1~1
+dpkg-buildpackage: source distribution xenial
+dpkg-buildpackage: source changed by Samo Pogačnik <samo_pogacnik@t-2.net>
+ dpkg-source --before-build git-subrepo-debian
+ fakeroot debian/rules clean
+dh clean  
+   dh_testdir
+   dh_auto_clean
+   dh_clean
+ dpkg-source -b git-subrepo-debian
+dpkg-source: info: using source format '3.0 (native)'
+dpkg-source: info: building git-subrepo in git-subrepo_0.4.1~1.tar.xz
+dpkg-source: info: building git-subrepo in git-subrepo_0.4.1~1.dsc
+ dpkg-genchanges -S >../git-subrepo_0.4.1~1_source.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source --after-build git-subrepo-debian
+dpkg-buildpackage: source-only upload: Debian-native package
+Now running lintian...
+W: git-subrepo source: package-needs-versioned-debhelper-build-depends 10
+W: git-subrepo source: newer-standards-version 4.1.4 (current is 3.9.7)
+Finished running lintian.
+samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ exit
+$
+
+Upload to launchpad:
+GIT-SUBREPO$ dput -f ppa:spog/ppa-xenial git-subrepo_0.4.1~1_source.changes
 
 Add PPA containing 'git-subrepo' package:
-$ sudo add-apt-repository ppa:spog/ppa
+$ sudo add-apt-repository ppa:spog/ppa-xenial
 $ sudo apt-get update
 
 Install 'git-subrepo' DEB using APT:
