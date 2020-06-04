@@ -1,5 +1,5 @@
-# docker build -f Dockerfile_git-subrepo-devel -t ubuntu:eoan-git-subrepo-devel .
-FROM ubuntu:eoan
+# docker build -f Dockerfile_git-subrepo-devel -t ubuntu:focal-git-subrepo-devel .
+FROM ubuntu:focal
 
 # Identify the maintainer of an image
 LABEL maintainer="samo_pogacnik@t-2.net"

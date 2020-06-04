@@ -16,14 +16,14 @@ project top directory.
 
 4. Commit / push chages, when happy.
 
-Ubuntu - eoan build (RELEASED):
+Ubuntu - focal build (RELEASED):
 ---------------------------------
 Prepared debian files:
 - debian/changelog
 - debian/compat
 - debian/control
 
-Run ubuntu:eoan-git-subrepo-devel container:
+Run ubuntu:focal-git-subrepo-devel container:
 
 $ docker run --rm \
 -u $(id -u ${USER}):$(id -g ${USER}) \
@@ -33,7 +33,7 @@ $ docker run --rm \
 -v /etc/sudoers:/etc/sudoers:ro \
 -v ${HOME}:${HOME} \
 -w ${HOME} \
--it ubuntu:eoan-git-subrepo-devel
+-it ubuntu:focal-git-subrepo-devel
 samo@9789e1d58e8d:~$ 
 
 samo@9789e1d58e8d:~$ cd GIT-SUBREPO/git-subrepo-debian/
@@ -43,7 +43,7 @@ samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ debuild -S -uc -us
  dpkg-buildpackage -rfakeroot -d -us -uc -S
 dpkg-buildpackage: source package git-subrepo
 dpkg-buildpackage: source version 0.4.1~1
-dpkg-buildpackage: source distribution eoan
+dpkg-buildpackage: source distribution focal
 dpkg-buildpackage: source changed by Samo Pogačnik <samo_pogacnik@t-2.net>
  dpkg-source --before-build git-subrepo-debian
  fakeroot debian/rules clean
@@ -69,10 +69,10 @@ $
 
 Upload to launchpad:
 GIT-SUBREPO$ debsign git-subrepo_0.4.1~1_source.changes
-GIT-SUBREPO$ dput -f ppa:spog/ppa-eoan git-subrepo_0.4.1~1_source.changes
+GIT-SUBREPO$ dput -f ppa:spog/ppa-focal git-subrepo_0.4.1~1_source.changes
 
 Add PPA containing 'git-subrepo' package:
-$ sudo add-apt-repository ppa:spog/ppa-eoan
+$ sudo add-apt-repository ppa:spog/ppa-focal
 $ sudo apt-get update
 
 Install 'git-subrepo' DEB using APT:

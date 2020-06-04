@@ -1,4 +1,4 @@
-git-subrepo (0.4.1~1) eoan; urgency=low
+git-subrepo (0.4.1~1) focal; urgency=low
 
   [ spog ]
   * Fixed reading installed subrepo command info.
