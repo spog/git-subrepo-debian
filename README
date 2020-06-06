@@ -42,7 +42,7 @@ samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$
 samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ debuild -S -uc -us
  dpkg-buildpackage -rfakeroot -d -us -uc -S
 dpkg-buildpackage: source package git-subrepo
-dpkg-buildpackage: source version 0.4.1~1
+dpkg-buildpackage: source version 0.4.1~x
 dpkg-buildpackage: source distribution eoan
 dpkg-buildpackage: source changed by Samo Pogačnik <samo_pogacnik@t-2.net>
  dpkg-source --before-build git-subrepo-debian
@@ -53,9 +53,9 @@ dh clean
    dh_clean
  dpkg-source -b git-subrepo-debian
 dpkg-source: info: using source format '3.0 (native)'
-dpkg-source: info: building git-subrepo in git-subrepo_0.4.1~1.tar.xz
-dpkg-source: info: building git-subrepo in git-subrepo_0.4.1~1.dsc
- dpkg-genchanges -S >../git-subrepo_0.4.1~1_source.changes
+dpkg-source: info: building git-subrepo in git-subrepo_0.4.1~x.tar.xz
+dpkg-source: info: building git-subrepo in git-subrepo_0.4.1~x.dsc
+ dpkg-genchanges -S >../git-subrepo_0.4.1~x_source.changes
 dpkg-genchanges: including full source code in upload
  dpkg-source --after-build git-subrepo-debian
 dpkg-buildpackage: source-only upload: Debian-native package
@@ -68,8 +68,8 @@ samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ exit
 $
 
 Upload to launchpad:
-GIT-SUBREPO$ debsign git-subrepo_0.4.1~1_source.changes
-GIT-SUBREPO$ dput -f ppa:spog/ppa-eoan git-subrepo_0.4.1~1_source.changes
+GIT-SUBREPO$ debsign git-subrepo_0.4.1~x_source.changes
+GIT-SUBREPO$ dput -f ppa:spog/ppa-eoan git-subrepo_0.4.1~x_source.changes
 
 Add PPA containing 'git-subrepo' package:
 $ sudo add-apt-repository ppa:spog/ppa-eoan
