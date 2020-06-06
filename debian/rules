@@ -23,5 +23,7 @@ override_dh_install:
 	sed -i '1i#!/bin/bash' $(DESTDIR)$(PREFIX)/lib/git-core/git-subrepo.d/bash+.bash
 	cat src/.gitrepo | grep "commit = " | sed 's/^.*commit \= //' | cut -b -7 > $(DESTDIR)$(PREFIX)/lib/git-core/git-subrepo.d/commit
 	cat src/.gitrepo | grep "remote = " | sed 's/^.*remote \= //' > $(DESTDIR)$(PREFIX)/lib/git-core/git-subrepo.d/upstream
+	install -d -m 0755 $(DESTDIR)/etc/profile.d
+	install -C -m 0644 git-subrepo.sh $(DESTDIR)/etc/profile.d/git-subrepo.sh
 
 override_dh_usrlocal:
