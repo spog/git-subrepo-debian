@@ -1,7 +1,9 @@
 This package was debianized by Samo Pogačnik <samo_pogacnik@t-2.net> on
 Mon, 25 May 2020 17:14:44 +0200.
 
-It was downloaded from https://github.com/ingydotnet/git-subrepo
+Git-subrepo-ed:
+from https://github.com/ingydotnet/git-subrepo
+into https://github.com/spog/git-subrepo-debian
 
 Upstream Authors: Ingy döt Net <ingy@ingy.net>
                   Magnus Carlsson <grimmymail@gmail.com>

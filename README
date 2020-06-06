@@ -16,14 +16,14 @@ project top directory.
 
 4. Commit / push chages, when happy.
 
-Ubuntu - focal build (RELEASED):
+Ubuntu - buster build (RELEASED):
 ---------------------------------
 Prepared debian files:
 - debian/changelog
 - debian/compat
 - debian/control
 
-Run ubuntu:focal-git-subrepo-devel container:
+Run debian:buster-git-subrepo-devel container:
 
 $ docker run --rm \
 -u $(id -u ${USER}):$(id -g ${USER}) \
@@ -33,7 +33,7 @@ $ docker run --rm \
 -v /etc/sudoers:/etc/sudoers:ro \
 -v ${HOME}:${HOME} \
 -w ${HOME} \
--it ubuntu:focal-git-subrepo-devel
+-it debian:buster-git-subrepo-devel
 samo@9789e1d58e8d:~$ 
 
 samo@9789e1d58e8d:~$ cd GIT-SUBREPO/git-subrepo-debian/
@@ -42,8 +42,8 @@ samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$
 samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ debuild -S -uc -us
  dpkg-buildpackage -rfakeroot -d -us -uc -S
 dpkg-buildpackage: source package git-subrepo
-dpkg-buildpackage: source version 0.4.1~1
-dpkg-buildpackage: source distribution focal
+dpkg-buildpackage: source version 0.4.1~x
+dpkg-buildpackage: source distribution buster
 dpkg-buildpackage: source changed by Samo Pogačnik <samo_pogacnik@t-2.net>
  dpkg-source --before-build git-subrepo-debian
  fakeroot debian/rules clean
@@ -53,9 +53,9 @@ dh clean
    dh_clean
  dpkg-source -b git-subrepo-debian
 dpkg-source: info: using source format '3.0 (native)'
-dpkg-source: info: building git-subrepo in git-subrepo_0.4.1~1.tar.xz
-dpkg-source: info: building git-subrepo in git-subrepo_0.4.1~1.dsc
- dpkg-genchanges -S >../git-subrepo_0.4.1~1_source.changes
+dpkg-source: info: building git-subrepo in git-subrepo_0.4.1~x.tar.xz
+dpkg-source: info: building git-subrepo in git-subrepo_0.4.1~x.dsc
+ dpkg-genchanges -S >../git-subrepo_0.4.1~x_source.changes
 dpkg-genchanges: including full source code in upload
  dpkg-source --after-build git-subrepo-debian
 dpkg-buildpackage: source-only upload: Debian-native package
@@ -67,18 +67,7 @@ samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$
 samo@9789e1d58e8d:~/GIT-SUBREPO/git-subrepo-debian$ exit
 $
 
-Upload to launchpad:
-GIT-SUBREPO$ debsign git-subrepo_0.4.1~1_source.changes
-GIT-SUBREPO$ dput -f ppa:spog/ppa-focal git-subrepo_0.4.1~1_source.changes
-
-Add PPA containing 'git-subrepo' package:
-$ sudo add-apt-repository ppa:spog/ppa-focal
-$ sudo apt-get update
-
-Install 'git-subrepo' DEB using APT:
-$ sudo apt update
-$ apt search git-subrepo
-$ sudo apt install git-subrepo
-$ man git-subrepo
-$ git subrepo ...
+Upload to mentors (UNRELEASED):
+GIT-SUBREPO$ debsign git-subrepo_0.4.1~x_source.changes
+GIT-SUBREPO$ dput mentors git-subrepo_0.4.1~x_source.changes
 

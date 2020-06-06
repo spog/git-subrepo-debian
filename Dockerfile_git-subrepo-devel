@@ -1,5 +1,5 @@
-# docker build -f Dockerfile_git-subrepo-devel -t ubuntu:focal-git-subrepo-devel .
-FROM ubuntu:focal
+# docker build -f Dockerfile_git-subrepo-devel -t debian:buster-git-subrepo-devel .
+FROM debian:buster
 
 # Identify the maintainer of an image
 LABEL maintainer="samo_pogacnik@t-2.net"
@@ -18,7 +18,6 @@ devscripts \
 debhelper \
 locales \
 locales-all \
-language-pack-sl \
 sudo \
 bash-completion \
 git \
