@@ -1,4 +1,4 @@
-git-subrepo (0.4.1~2) UNRELEASED; urgency=low
+git-subrepo (0.4.1~2) unstable; urgency=low
 
   [ spog ]
   * Fixed reading installed subrepo command info.

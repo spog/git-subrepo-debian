@@ -1,9 +1,9 @@
 This package was debianized by Samo Pogačnik <samo_pogacnik@t-2.net> on
 Mon, 25 May 2020 17:14:44 +0200.
 
-Git-subrepo-ed:
-from https://github.com/ingydotnet/git-subrepo
-into https://github.com/spog/git-subrepo-debian
+The current Debian maintainer is Samo Pogačnik <samo_pogacnik@t-2.net>
+
+It was downloaded from: https://github.com/ingydotnet/git-subrepo
 
 Upstream Authors: Ingy döt Net <ingy@ingy.net>
                   Magnus Carlsson <grimmymail@gmail.com>
@@ -34,3 +34,5 @@ License:
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
 
+The Debian packaging is (C) 2020, Samo Pogačnik <samo_pogacnik@t-2.net> and
+is licensed under the MIT, see above.
