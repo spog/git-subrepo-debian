@@ -2,8 +2,9 @@ Source: git-subrepo
 Section: vcs
 Priority: optional
 Maintainer: Samo Pogačnik <samo_pogacnik@t-2.net>
-Build-Depends: debhelper (>= 11), git (>= 2.8)
-Standards-Version: 4.1.4
+Build-Depends: debhelper (>= 12), git (>= 2.8)
+Rules-Requires-Root: no
+Standards-Version: 4.5.0
 
 Package: git-subrepo
 Architecture: any

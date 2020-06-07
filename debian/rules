@@ -8,7 +8,7 @@ export DESTDIR = $(shell pwd)/debian/git-subrepo
 export PREFIX=/usr
 
 %:
-	dh $@  
+	dh $@
 
 #override_dh_auto_install:
 #	dh_auto_install -- prefix=/usr
