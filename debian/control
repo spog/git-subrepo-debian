@@ -2,9 +2,12 @@ Source: git-subrepo
 Section: vcs
 Priority: optional
 Maintainer: Samo Pogačnik <samo_pogacnik@t-2.net>
-Build-Depends: debhelper (>= 12), git (>= 2.8)
-Rules-Requires-Root: no
+Build-Depends: debhelper-compat (= 12), git (>= 2.8)
 Standards-Version: 4.5.0
+Homepage: https://github.com/ingydotnet/git-subrepo
+Vcs-Browser: https://github.com/spog/git-subrepo-debian
+Vcs-Git: https://github.com/spog/git-subrepo-debian.git
+Rules-Requires-Root: no
 
 Package: git-subrepo
 Architecture: any
@@ -15,5 +18,3 @@ Description: GIT Submodule alternative
  This git command "clones" an external git repo into a subdirectory
  of your repo. Later on, upstream changes can be pulled in, and local
  changes can be pushed back. Simple.
- .
- WWW: https://github.com/ingydotnet/git-subrepo

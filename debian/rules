@@ -17,13 +17,13 @@ export PREFIX=/usr
 #	dh_install --list-missing -X.pyc -X.pyo
 
 override_dh_install:
-	make -C src install
+	make -C upstream_git-subrepo install
 	install -d -m 0755 $(DESTDIR)$(PREFIX)/share/bash-completion/completions
-	install -C -m 0644 src/share/completion.bash $(DESTDIR)$(PREFIX)/share/bash-completion/completions/git-subrepo
+	install -C -m 0644 upstream_git-subrepo/share/completion.bash $(DESTDIR)$(PREFIX)/share/bash-completion/completions/git-subrepo
 	sed -i '1i#!/bin/bash' $(DESTDIR)$(PREFIX)/lib/git-core/git-subrepo.d/bash+.bash
-	cat src/.gitrepo | grep "commit = " | sed 's/^.*commit \= //' | cut -b -7 > $(DESTDIR)$(PREFIX)/lib/git-core/git-subrepo.d/commit
-	cat src/.gitrepo | grep "remote = " | sed 's/^.*remote \= //' > $(DESTDIR)$(PREFIX)/lib/git-core/git-subrepo.d/upstream
+	cat upstream_git-subrepo/.gitrepo | grep "commit = " | sed 's/^.*commit \= //' | cut -b -7 > $(DESTDIR)$(PREFIX)/lib/git-core/git-subrepo.d/commit
+	cat upstream_git-subrepo/.gitrepo | grep "remote = " | sed 's/^.*remote \= //' > $(DESTDIR)$(PREFIX)/lib/git-core/git-subrepo.d/upstream
 	install -d -m 0755 $(DESTDIR)/etc/profile.d
-	install -C -m 0644 git-subrepo.sh $(DESTDIR)/etc/profile.d/git-subrepo.sh
+	install -C -m 0644 extra/git-subrepo.sh $(DESTDIR)/etc/profile.d/git-subrepo.sh
 
 override_dh_usrlocal:
